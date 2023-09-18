@@ -22,11 +22,9 @@ export default function InserirProduto() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const newItem = () => {
-      
-    }
-
-
+    let newItem = produto;
+    ListaProdutos.push(newItem);
+    alert("Produto adicionado com sucesso!");
 
     navigate("/produtos");
   };
@@ -35,37 +33,49 @@ export default function InserirProduto() {
     <div>
       <h1>Inserir Produto</h1>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="nome">Nome do produto:</label>
-          <input
-            type="text"
-            id="nome"
-            name="nome"
-            value={produto.nome}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="desc">Descrição:</label>
-          <input
-            type="text"
-            id="desc"
-            name="desc"
-            value={produto.desc}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="preco">Preço:</label>
-          <input
-            type="text"
-            id="preco"
-            name="preco"
-            value={produto.preco}
-            onChange={handleChange}
-          />
-        </div>
-        <button type="submit">Adicionar Produto</button>
+        <fieldset>
+          <legend>Novo Produto</legend>
+          <div>
+            <label htmlFor="idNome">Nome do produto:</label>
+            <input
+              type="text"
+              id="idNome"
+              name="nome"
+              value={produto.nome}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="idDesc">Descrição:</label>
+            <input
+              type="text"
+              id="idDesc"
+              name="desc"
+              value={produto.desc}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="idPreco">Preço:</label>
+            <input
+              type="text"
+              id="idPreco"
+              name="preco"
+              value={produto.preco}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="idImg">Imagem:</label>
+            <input
+              type="file"
+              id="idImage"
+              name="image"
+              value={produto.img}
+            />
+          </div>
+          <button type="submit">Adicionar Produto</button>
+        </fieldset>
       </form>
 
       <h2>Lista de Produtos:</h2>

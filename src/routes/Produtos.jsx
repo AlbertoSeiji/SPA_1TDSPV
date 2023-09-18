@@ -27,9 +27,6 @@ export default function Produtos() {
       console.log("Use-Effect que será renderizado o objeto ou componente ou elemento que está no array de depenências sofrer atualização.");
     },[count]);
 
-
-
-
     return (
       <div>
           <h1>LISTA DE PRODUTOS</h1>
