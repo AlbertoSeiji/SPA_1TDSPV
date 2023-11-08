@@ -3,6 +3,8 @@ import { useState } from "react";
 
 export default function Login() {
 
+    const [msgstatus, setMsgStatus] = useState("");
+
     //Criando um useState para comportar o usuário:
     const [usuario, setUsuario] = useState({
         "email":"",
@@ -31,12 +33,12 @@ export default function Login() {
             });
 
             if(response.ok){
-                let status = response.json();
+                const status = await response.json();
 
-                if(status){
-                    console.log("USUÁRIO VALIDADO COM SUCESSO!");
+                if(status.status == true){
+                    setMsgStatus("Login realizado com SUCESSO!");
                 }else{
-                    console.log("USUÁRIO OU SENHA INVÁLIDOS!");
+                    setMsgStatus("USUÁRIO E OU SENHA INVÁLIDOS!");
                 }
             }
         } catch (error) {
@@ -46,6 +48,8 @@ export default function Login() {
   return (
     <div>
         <h1>INFORMAÇÕES DOS USUÁRIOS</h1>
+
+            <h2>{msgstatus}</h2>
 
         <div>
             <form onSubmit={handleSubmit}>
