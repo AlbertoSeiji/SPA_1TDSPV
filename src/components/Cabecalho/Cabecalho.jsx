@@ -7,6 +7,9 @@ export default function Cabecalho() {
       <hr className="bg-red-600 border border-red-700"/> 
       <nav className="menu">
         <ul>
+        <li>
+            <Link href="/login">LOGIN</Link>
+          </li>
           <li>
             <Link href="/produtos/calca">CALÇA</Link>
           </li>
@@ -20,7 +23,7 @@ export default function Cabecalho() {
             <Link href="/produtos/fazenda/loja/laticinios">QUEIJOS</Link>
           </li>
           <li>
-            <Link href="/user-pages">GIT-USERS</Link>
+              <Link href="/user-pages">GIT-USERS</Link>
           </li>
         </ul>
       </nav>

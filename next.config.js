@@ -19,7 +19,7 @@ module.exports =
             },
             {
                 protocol: "https",
-                hostname: "/avatars.githubusercontent.com",
+                hostname: "avatars.githubusercontent.com",
                 port: "",
                 pathname: "/u/**"
             }

@@ -1,31 +1,47 @@
-export default async function UserPages() {
+"use client"
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
-    const response = await fetch("http://localhost:3000/api/git-users");
-    const users = await response.json(); 
+export default function UserPages() {
 
-    return (
+    // const response = await fetch("http://localhost:3000/api/git-users");
+    // const users = await response.json();
+
+    const [users, setUsers] = useState([]);
+
+        useEffect(() => {
+            fetch("http://localhost:3000/api/git-users")
+            .then((response)=> response.json())
+            .then((response)=> setUsers(response))
+            .catch(errors=> console.error(errors));
+
+        }, [])
+        
+        console.log(users);
+
+  return (
+    <div>
+        <h1>User Pages</h1>
+        
         <div>
-            <h1>User Pages</h1>
-
-            <div>
-                <ul>
-                    {
-                        users.map((user)=>(
-                            <li key={user.id}>
-                                <figure>
-                                    <Image
-                                        src={user.avatar_url}
-                                        alt="Avatar"
-                                        width={50}
-                                        heigth={50}
-                                    />
-                                    <figcaption>{user.login}</figcaption>
-                                </figure>
-                            </li>
-                        ))
-                    }
-                </ul>
-            </div>
+            <ul className="card-user">
+                {
+                    users.map((user)=>(
+                        <li key={user.id}>
+                            <figure>
+                                <Image
+                                src={user.avatar_url}
+                                alt="Avatar"
+                                width={50}
+                                height={50} />
+                                <figcaption>{user.login}</figcaption>
+                            </figure>
+                        </li>
+                    ))
+                }
+            </ul>
         </div>
-    )
+
+    </div>
+  )
 }

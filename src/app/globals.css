@@ -1,8 +1,26 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer components {
+
+    .card-user{
+        @apply flex flex-wrap;
+
+        & li{
+            @apply p-5 m-5  bg-red-400 w-40;
+
+            & img{
+                @apply block m-auto;
+            }
+
+            & figcaption{
+                @apply text-center font-bold text-xl;
+            }
+        }
+    }
+
     .menu {
         & li {
             @apply inline;
@@ -15,5 +33,33 @@
 
     .rodape {
         @apply font-extrabold text-2xl text-white bg-slate-800 p-4 text-center fixed bottom-0 w-full;
+    }
+
+    .lat-prod-all{
+
+        & table{
+            @apply w-full text-center border border-blue-950;
+            & thead{
+                @apply bg-blue-950 text-white;
+
+                & th{
+                    @apply p-2 border border-white;
+                }
+            }
+
+            & tbody{
+                & tr{
+                    @apply bg-blue-950 text-white;
+
+                    & td{
+                        @apply p-2 border border-white;
+
+                        & img{
+                            @apply w-20 block m-auto;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
